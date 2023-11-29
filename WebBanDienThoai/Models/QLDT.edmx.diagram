@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b5ff281951c848dcb88b86e952ed7b18" Name="Diagram1">
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.Account" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.AccountType" Width="1.5" PointX="1.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.BILL" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.BILLINFO" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.BRAND" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.Operation" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WEBDIENTHOAIModel.PRODUCT" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="WEBDIENTHOAIModel.FK__Account__TYPEID__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBDIENTHOAIModel.FK__BILL__AccountID__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBDIENTHOAIModel.FK__BILLINFO__BILLIN__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBDIENTHOAIModel.FK__BILLINFO__PRODUC__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBDIENTHOAIModel.FK__PRODUCT__BrandID__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="WEBDIENTHOAIModel.FK__PRODUCT__OSID__412EB0B6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
