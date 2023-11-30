@@ -17,13 +17,23 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/Admin/AccountTypes/Index"> <span class="sr-only">Account Type</span></a>
+                        @*<a class="nav-link" href="/Admin/AccountTypes/Index"> <span class="sr-only">Account Type</span></a>*@
+                        @Html.ActionLink("Account Type", "Index", "AccountTypes", new { area = "Admin" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        @Html.ActionLink("Account", "Index", "Accounts", new { area = "Admin" }, new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        @Html.ActionLink("Brand", "Index", "Brands", new { area = "Admin" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Operation", "Index", "Operations", new { area = "Admin" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Product", "Index", "Products", new { area = "Admin" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Bill", "Index", "Bills", new { area = "Admin" }, new { @class = "nav-link" })
                     </li>
                 </ul>
             </div>

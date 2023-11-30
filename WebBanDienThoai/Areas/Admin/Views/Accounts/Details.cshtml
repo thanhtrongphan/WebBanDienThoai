@@ -1,0 +1,75 @@
+﻿@model WebBanDienThoai.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMBERPHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMBERPHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADDRESS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PICTURE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PICTURE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountType.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountType.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

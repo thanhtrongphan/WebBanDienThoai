@@ -34,10 +34,10 @@
   <EntityType Name="BILLINFO">
     <Key>
       <PropertyRef Name="PRODUCTID" />
-      <PropertyRef Name="BILLINFO" />
+      <PropertyRef Name="BILLID" />
     </Key>
     <Property Name="PRODUCTID" Type="int" Nullable="false" />
-    <Property Name="BILLINFO" Type="int" Nullable="false" />
+    <Property Name="BILLID" Type="int" Nullable="false" />
     <Property Name="STOCK" Type="int" />
     <Property Name="PRICE" Type="int" />
   </EntityType>
@@ -103,7 +103,7 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="BILLINFO">
-        <PropertyRef Name="BILLINFO" />
+        <PropertyRef Name="BILLID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

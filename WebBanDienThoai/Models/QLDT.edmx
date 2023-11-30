@@ -39,10 +39,10 @@
         <EntityType Name="BILLINFO">
           <Key>
             <PropertyRef Name="PRODUCTID" />
-            <PropertyRef Name="BILLINFO" />
+            <PropertyRef Name="BILLID" />
           </Key>
           <Property Name="PRODUCTID" Type="int" Nullable="false" />
-          <Property Name="BILLINFO" Type="int" Nullable="false" />
+          <Property Name="BILLID" Type="int" Nullable="false" />
           <Property Name="STOCK" Type="int" />
           <Property Name="PRICE" Type="int" />
         </EntityType>
@@ -108,7 +108,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BILLINFO">
-              <PropertyRef Name="BILLINFO" />
+              <PropertyRef Name="BILLID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -225,10 +225,10 @@
         <EntityType Name="BILLINFO">
           <Key>
             <PropertyRef Name="PRODUCTID" />
-            <PropertyRef Name="BILLINFO1" />
+            <PropertyRef Name="BILLID" />
           </Key>
           <Property Name="PRODUCTID" Type="Int32" Nullable="false" />
-          <Property Name="BILLINFO1" Type="Int32" Nullable="false" />
+          <Property Name="BILLID" Type="Int32" Nullable="false" />
           <Property Name="STOCK" Type="Int32" />
           <Property Name="PRICE" Type="Int32" />
           <NavigationProperty Name="BILL" Relationship="Self.FK__BILLINFO__BILLIN__47DBAE45" FromRole="BILLINFO" ToRole="BILL" />
@@ -301,7 +301,7 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BILLINFO">
-              <PropertyRef Name="BILLINFO1" />
+              <PropertyRef Name="BILLID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -418,7 +418,7 @@
             <EntityTypeMapping TypeName="WEBDIENTHOAIModel.BILLINFO">
               <MappingFragment StoreEntitySet="BILLINFO">
                 <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-                <ScalarProperty Name="BILLINFO1" ColumnName="BILLINFO" />
+                <ScalarProperty Name="BILLID" ColumnName="BILLID" />
                 <ScalarProperty Name="STOCK" ColumnName="STOCK" />
                 <ScalarProperty Name="PRICE" ColumnName="PRICE" />
               </MappingFragment>

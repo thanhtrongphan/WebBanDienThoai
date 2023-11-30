@@ -1,0 +1,88 @@
+﻿@model IEnumerable<WebBanDienThoai.Models.PRODUCT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Product</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descriptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SIM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MemoryStorage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BRAND.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Operation.NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descriptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SIM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemoryStorage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ram)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BRAND.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Operation.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -15,7 +15,7 @@ namespace WebBanDienThoai.Models
     public partial class BILLINFO
     {
         public int PRODUCTID { get; set; }
-        public int BILLINFO1 { get; set; }
+        public int BILLID { get; set; }
         public Nullable<int> STOCK { get; set; }
         public Nullable<int> PRICE { get; set; }
     

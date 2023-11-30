@@ -1,0 +1,71 @@
+﻿@model List<WebBanDienThoai.Models.Cart_DTO>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class=""> GIỎ HÀNG <i class="fa fa-shopping-cart"></i></h2>
+<br />
+<table class="table-hover table-bordered divGioHang">
+    <tr style="">
+        <th> Mã SP</th>
+
+        <th> Tên SP</th>
+
+        @*<th> Ảnh bìa</th>*@
+
+        <th> Đơn giá</th>
+
+        <th> Số lượng</th>
+
+        <th> Thành tiền</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr class="font-italic">
+            <td> @item.iMaSP</td>
+
+            <td> @item.sTenSP</td>
+
+            @*<td> <img src="@Url.Content("~" +item.sAnhBia)" width="50" height="50" /></td>*@
+
+            <td>  @String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
+
+            <td> @item.iSoLuong</td>
+
+            <td>   @String.Format("{0:0,0}", item.dThanhTien) VNĐ</td>
+
+
+        </tr>
+
+    }
+    <tr>
+
+        <td colspan="6" style="text-align:right;color:blue">
+            @using (Html.BeginForm("Order", "Cart", new { @class = "" }))
+            {
+                <input type="submit" value="Đặt hàng" class="btn-danger" />
+            }
+        </td>
+    </tr>
+</table>
+<a style="color: red" href="/Home/Index">Trở lại trang chủ</a>
+
+@*Css giỏ hàng*@
+<style type="text/css">
+    .divGioHang {
+        border: 2px solid #EEEEEE;
+        margin-left: 10%;
+        font-size: large
+    }
+
+        .divGioHang td {
+            padding: 10px;
+            border: 2px solid #EEEEEE;
+            text-align: center
+        }
+
+        .divGioHang th {
+            text-align: center
+        }
+</style>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebBanDienThoai.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMBERPHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADDRESS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PICTURE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountType.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PASSWORD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMBERPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADDRESS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PICTURE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountType.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

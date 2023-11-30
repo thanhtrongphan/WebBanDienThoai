@@ -127,16 +127,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AccountsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AccountTypesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BILLsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BRANDsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OperationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PRODUCTsController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\Account.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountType.cs">
-      <DependentUpon>QLDT.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AccountCart_DTO.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Models\AccountType.cs">
+      <DependentUpon>QLDT.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Account_DTO.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Models\BILL.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
@@ -146,17 +159,13 @@
     <Compile Include="Models\BRAND.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Cart_DTO.cs" />
     <Compile Include="Models\Operation.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PRODUCT.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\QLDT.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +181,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLDT.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -209,13 +219,6 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\QLDT.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QLDT.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\QLDT.edmx.diagram">
-      <DependentUpon>QLDT.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\AccountTypes\Create.cshtml" />
@@ -223,6 +226,38 @@
     <Content Include="Areas\Admin\Views\AccountTypes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AccountTypes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AccountTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BRANDs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BRANDs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BRANDs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BRANDs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BRANDs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Operations\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Operations\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Operations\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Operations\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Operations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PRODUCTs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PRODUCTs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PRODUCTs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\PRODUCTs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\PRODUCTs\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BILLs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\BILLs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BILLs\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BILLs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BILLs\Index.cshtml" />
+    <EntityDeploy Include="Models\QLDT.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QLDT.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QLDT.edmx.diagram">
+      <DependentUpon>QLDT.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -248,6 +283,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Cart\CartPartial.cshtml" />
+    <Content Include="Views\Cart\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

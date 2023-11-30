@@ -39,7 +39,7 @@
       <EntityTypeMapping TypeName="WEBDIENTHOAIModel.BILLINFO">
         <MappingFragment StoreEntitySet="BILLINFO">
           <ScalarProperty Name="PRODUCTID" ColumnName="PRODUCTID" />
-          <ScalarProperty Name="BILLINFO1" ColumnName="BILLINFO" />
+          <ScalarProperty Name="BILLID" ColumnName="BILLID" />
           <ScalarProperty Name="STOCK" ColumnName="STOCK" />
           <ScalarProperty Name="PRICE" ColumnName="PRICE" />
         </MappingFragment>

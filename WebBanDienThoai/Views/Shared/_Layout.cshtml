@@ -4,37 +4,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <style type="text/css">
+        .giohang {
+            color: red;
+            font-size: large
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("AccountType", "Index", "AccountTypes", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
+    @{ var u = Session["use"] as WebBanDienThoai.Models.Account; }
+    <div class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="top_header col-md-12">
+
+            <div class="row">
+
+
+
+
+
+                @{ if (u != null)
+                    {
+                        <div class="col-sm-4 col-md-0" style="padding-left:250px">
+                            @Html.Action("CartPartial", "Cart")
+                        </div>
+                        <div class="col-sm-4 col-md-0">
+                            <a style="color:red" href="@Url.Action("Profile", "User", new { id = u.NAME })"> Xin chào : @u.EMAIL</a>
+
+                            <a style="color:red" href="/User/Logout"> ĐĂNG XUẤT</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-4 col-md-0">
+                            <a href="/User/Dangky"> Đăng ký</a>
+                            &nbsp;
+                            <a href="~/User/Login"> Đăng nhập</a>
+                        </div>
+                    }
+                }
+            </div>
+
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-</body>
+        @RenderBody()
+
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
 </html>
