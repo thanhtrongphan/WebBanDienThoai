@@ -56,12 +56,12 @@ namespace WebBanDienThoai.Controllers
             {
                 sanpham = new Cart_DTO(id);
                 lstGioHang.Add(sanpham);
-                return RedirectToAction("Cart");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
                 sanpham.iSoLuong++;
-                return RedirectToAction("Cart");
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -156,6 +156,66 @@ namespace WebBanDienThoai.Controllers
             db.SaveChanges();
             Session["cart"] = null;
             return RedirectToAction("Index", "Home");
+        }
+        //Xây dựng 1 view cho người dùng chỉnh sửa giỏ hàng
+        public ActionResult customCart()
+        {
+            if (Session["cart"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            List<Cart_DTO> lstCart = getCart();
+            return View(lstCart);
+
+        }
+        //Xóa giỏ hàng
+        public ActionResult deletCartItem(int iMaSP)
+        {
+            //Kiểm tra masp
+            PRODUCT sp = db.PRODUCTs.SingleOrDefault(n => n.ID == iMaSP);
+            //Nếu get sai masp thì sẽ trả về trang lỗi 404
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //Lấy giỏ hàng ra từ session
+            List<Cart_DTO> lstGioHang = getCart();
+            Cart_DTO sanpham = lstGioHang.SingleOrDefault(n => n.iMaSP == iMaSP);
+            //Nếu mà tồn tại thì chúng ta cho sửa số lượng
+            if (sanpham != null)
+            {
+                lstGioHang.RemoveAll(n => n.iMaSP == iMaSP);
+
+            }
+            if (lstGioHang.Count == 0)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("customCart");
+        }
+        //Cập nhật giỏ hàng 
+        public ActionResult updateCartItem(int iMaSP, FormCollection f)
+        {
+            //Kiểm tra masp
+            PRODUCT sp = db.PRODUCTs.SingleOrDefault(n => n.ID == iMaSP);
+            //Nếu get sai masp thì sẽ trả về trang lỗi 404
+            if (sp == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            //Lấy giỏ hàng ra từ session
+            List<Cart_DTO> lstGioHang = getCart();
+            //Kiểm tra sp có tồn tại trong session["GioHang"]
+            Cart_DTO sanpham = lstGioHang.SingleOrDefault(n => n.iMaSP == iMaSP);
+            //Nếu mà tồn tại thì chúng ta cho sửa số lượng
+            if (sanpham != null)
+            {
+                sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
+
+            }
+            return RedirectToAction("cart");
         }
     }
 }

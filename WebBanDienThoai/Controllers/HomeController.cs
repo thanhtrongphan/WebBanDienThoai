@@ -15,7 +15,17 @@ namespace WebBanDienThoai.Controllers
             var products = db.PRODUCTs.ToList();
             return View(products);
         }
-
+        public ActionResult showProductbyBrand(int idBrand)
+        {
+            var products = db.PRODUCTs.Where(p => p.BrandID == idBrand).ToList();
+            return View("Index",products);
+        }
+        [ChildActionOnly]
+        public ActionResult MenuPartial()
+        {
+            var brands = db.BRANDs.ToList();
+            return PartialView("MenuPartial",brands);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

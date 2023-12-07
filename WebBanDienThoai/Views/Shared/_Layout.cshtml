@@ -39,7 +39,7 @@
                     else
                     {
                         <div class="col-sm-4 col-md-0">
-                            <a href="/User/Dangky"> Đăng ký</a>
+                            <a href="~/User/Register"> Đăng ký</a>
                             &nbsp;
                             <a href="~/User/Login"> Đăng nhập</a>
                         </div>
@@ -47,14 +47,16 @@
                 }
             </div>
 
-            </div>
         </div>
+    </div>
+    @{
+        Html.RenderAction("MenuPartial", "Home");
+    }
+    @RenderBody()
 
-        @RenderBody()
 
-
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

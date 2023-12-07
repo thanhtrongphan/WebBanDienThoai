@@ -28,5 +28,9 @@ namespace WebBanDienThoai.Models
             iSoLuong = 1;
             dThanhTien = dDonGia * iSoLuong;
         }
+        public Cart_DTO()
+        {
+            
+        }
     }
 }

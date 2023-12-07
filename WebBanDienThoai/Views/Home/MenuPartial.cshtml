@@ -1,0 +1,15 @@
+﻿@model List<WebBanDienThoai.Models.BRAND>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="collapse navbar-collapse" id="main_nav">
+            <button class="btn-success">@Html.ActionLink("Tất cả sản phẩm", "Index", new { })</button>
+            @foreach (var item in Model)
+            {
+                <button class="btn-success">@Html.ActionLink(item.NAME, "showProductbyBrand", new { @idBrand = item.ID })</button>
+            }
+        </div>
+    </nav>
+</div>
+
+
+

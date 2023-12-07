@@ -33,7 +33,21 @@ namespace WebBanDienThoai.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            return View(bILL);
+            BillDetails billDetails = new BillDetails();
+            billDetails.bill = bILL;
+            billDetails.lstCart = (from c in db.BILLINFOes
+                                   join s in db.PRODUCTs on c.PRODUCTID equals s.ID
+                                   where c.BILLID == id
+                                   select new Cart_DTO
+                                   {
+                                       iMaSP = c.PRODUCTID,
+                                        sTenSP = s.Name,
+                                        dDonGia = (double)s.Price,
+                                        iSoLuong = (int)c.STOCK,
+                                        sAnhBia = s.Picture,
+                                        dThanhTien = (double)s.Price * (int)c.STOCK
+                                   }).ToList();
+            return View(billDetails);
         }
         public ActionResult Confirm(int? id)
         {

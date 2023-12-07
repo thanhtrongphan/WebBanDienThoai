@@ -153,6 +153,7 @@
     <Compile Include="Models\BILL.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\BillDetails.cs" />
     <Compile Include="Models\BILLINFO.cs">
       <DependentUpon>QLDT.tt</DependentUpon>
     </Compile>
@@ -287,6 +288,9 @@
     <Content Include="Views\Cart\Cart.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\Order.cshtml" />
+    <Content Include="Views\User\Register.cshtml" />
+    <Content Include="Views\Cart\customCart.cshtml" />
+    <Content Include="Views\Home\MenuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

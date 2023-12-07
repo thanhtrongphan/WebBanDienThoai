@@ -1,4 +1,4 @@
-﻿@model WebBanDienThoai.Models.BILL
+﻿@model WebBanDienThoai.Models.BillDetails
 
 @{
     ViewBag.Title = "Details";
@@ -6,65 +6,43 @@
 }
 
 <h2>Chi tiết đơn hàng</h2>
+
 <div>
+    <h4>DonHang</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Account.NAME)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Account.NAME)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DateBuy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DateBuy)
-        </dd>
-
-        <dt>
-            @*@Html.DisplayNameFor(model => model.Tinhtrang)*@
-            Tình trạng đơn hàng
-        </dt>
-
-        <dd>
-            @{
-                if (Model.Status == 0)
-                {
-                    <div style="color:red">Đang chờ xác nhận</div>
-                }
-                else if (Model.Status == 1)
-                {
-
-
-                    <div style="color:slateblue">Đã xác nhận</div>
-
-                }
-                else
-                {
-                    <div style="color:red">Đang chờ xác nhận</div>
-
-                }
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên san phẩm</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Thành tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.lstCart)
+            {
+                <tr>
+                    <th scope="row">@item.iMaSP</th>
+                    <td>@item.sTenSP</td>
+                    <td>@item.dDonGia</td>
+                    <td>@item.iSoLuong</td>
+                    <td>@item.dThanhTien</td>
+                </tr>
             }
-        </dd>
 
-        
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
+        </tbody>
+    </table>
 
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
 
-    </dl>
 </div>
 <p>
-    <button> @Html.ActionLink("Xác nhận đơn hàng", "Confirm", new { id = Model.ID }) </button>
+    <button> @Html.ActionLink("Xác nhận đơn hàng", "Confirm", new { id = Model.bill.ID }) </button>
+    <button>@Html.ActionLink("Back to List", "Index")</button>
+    
 </p>
 
 

@@ -54,5 +54,40 @@ namespace WebBanDienThoai.Controllers
             Session["use"] = null;
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(FormCollection dangkyForm)
+        {
+            string userMail = dangkyForm["EMAIL"].ToString();
+            string password = dangkyForm["PASSWORD"].ToString();
+            string name = dangkyForm["NAME"].ToString();
+            string phone = dangkyForm["NUMBERPHONE"].ToString();
+            string address = dangkyForm["ADDRESS"].ToString();
+            string picture = dangkyForm["PICTURE"].ToString();
+            var isregister = db.Accounts.SingleOrDefault(x => x.EMAIL.Equals(userMail));
+            if (isregister != null)
+            {
+                ViewBag.isreg = "Email này đã dược đăng ký";
+                return View("Register");
+            }
+            else
+            {
+                ViewBag.isreg = "";
+                Account kh = new Account();
+                kh.EMAIL = userMail;
+                kh.NAME = name;
+                kh.PASSWORD = password;
+                kh.NUMBERPHONE = phone;
+                kh.TYPEID = 2;
+                kh.ADDRESS = address;
+                kh.PICTURE = picture;
+                db.Accounts.Add(kh);
+                db.SaveChanges();
+                return RedirectToAction("Login", "User");
+            }
+        }
     }
 }
