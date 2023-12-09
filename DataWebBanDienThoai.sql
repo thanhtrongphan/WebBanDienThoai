@@ -112,10 +112,10 @@ SET IDENTITY_INSERT [dbo].[Operation] OFF
 GO
 SET IDENTITY_INSERT [dbo].[PRODUCT] ON 
 
-INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (1, N'IPHONE 15 PROMAX', 33890000, 10, N'IPHONE 15', 1, 256, 8, N'1', 1, 1)
-INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (2, N'Samsung Galaxy A24', 5690000, 10, N'SAMSUNG', 2, 128, 6, N'1', 2, 2)
-INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (3, N'OPPO Find N3 Flip', 22990000, 10, N'OPPO', 2, 256, 12, N'1', 3, 2)
-INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (4, N'Xiaomi Redmi 12', 3690000, 10, N'XIAOMI', 2, 128, 4, N'1', 4, 2)
-INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (5, N'Nokia 8210 4G', 1590000, 10, N'NOKIA', 2, 32, 1, N'1', 5, 2)
+INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (1, N'IPHONE 15 PROMAX', 33890000, 10, N'IPHONE 15', 1, 256, 8, N'Iphone1.jpg', 1, 1)
+INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (2, N'Samsung Galaxy A24', 5690000, 10, N'SAMSUNG', 2, 128, 6, N'Samsung1.jpg', 2, 2)
+INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (3, N'OPPO Find N3 Flip', 22990000, 10, N'OPPO', 2, 256, 12, N'Oppo1.jpg', 3, 2)
+INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (4, N'Xiaomi Redmi 12', 3690000, 10, N'XIAOMI', 2, 128, 4, N'Xiaomi1.jpg', 4, 2)
+INSERT [dbo].[PRODUCT] ([ID], [Name], [Price], [Stock], [Descriptions], [SIM], [MemoryStorage], [Ram], [Picture], [BrandID], [OSID]) VALUES (5, N'Nokia 8210 4G', 1590000, 10, N'NOKIA', 2, 32, 1, N'Nokia1.jpg', 5, 2)
 SET IDENTITY_INSERT [dbo].[PRODUCT] OFF
 GO

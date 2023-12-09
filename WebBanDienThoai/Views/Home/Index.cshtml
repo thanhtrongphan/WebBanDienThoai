@@ -11,7 +11,7 @@
     {
         <div class="col-md-3 col-sm-6">
             <a href="@Url.Action("xemchitiet", new {@Masp=item.ID })">
-                @*<img src=@Url.Content("~" +item.Anhbia.ToString()) class="img-responsive" alt="" width="400" height="400" />*@
+                <img src=@Url.Content("~/Images/"+ item.Picture) class="img-responsive" alt="" width="400" height="400" />
             </a>
             <center>
                 <h3>@item.Name</h3>

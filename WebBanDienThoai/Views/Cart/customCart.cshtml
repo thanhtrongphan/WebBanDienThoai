@@ -13,7 +13,7 @@
         <tr>
             <th scope="col">Mã SP</th>
             <th scope="col">Tên SP</th>
-            @*<th scope="col">Ảnh bìa</th>*@
+            <th scope="col">Ảnh bìa</th>
             <th scope="col">Đơn giá</th>
             <th scope="col">Số lượng</th>
             <th scope="col">Thành tiền</th>
@@ -26,7 +26,7 @@
             <tr>
                 <th scope="row">@item.iMaSP</th>
                 <td>@item.sTenSP</td>
-                @*<td> <img src="@Url.Content("~/" +item.sAnhBia)" width="50" height="50" /></td>*@
+                <td> <img src="@Url.Content("~/Images/" +item.sAnhBia)" width="50" height="50" /></td>
                 <td>  @String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
                 @*Chỉnh sửa giỏ hàng gọi về action CapNhatGioHang*@
                 @using (Html.BeginForm("updateCartItem", "Cart", new { @iMaSP = item.iMaSP }))

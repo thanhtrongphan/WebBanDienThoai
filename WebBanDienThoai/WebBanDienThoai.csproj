@@ -204,6 +204,11 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Iphone1.jpg" />
+    <Content Include="Images\Nokia1.jpg" />
+    <Content Include="Images\Oppo1.jpg" />
+    <Content Include="Images\Samsung1.jpg" />
+    <Content Include="Images\Xiaomi1.jpg" />
     <Content Include="Models\QLDT.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>QLDT.edmx</DependentUpon>
@@ -227,11 +232,6 @@
     <Content Include="Areas\Admin\Views\AccountTypes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AccountTypes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AccountTypes\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Accounts\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\Accounts\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\Accounts\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\Accounts\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\Accounts\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BRANDs\Create.cshtml" />
     <Content Include="Areas\Admin\Views\BRANDs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BRANDs\Details.cshtml" />
@@ -259,6 +259,11 @@
     <Content Include="Models\QLDT.edmx.diagram">
       <DependentUpon>QLDT.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\Admin\Views\Accounts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Accounts\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
