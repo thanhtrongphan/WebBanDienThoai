@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using WebBanDienThoai.Models;
@@ -49,8 +51,18 @@ namespace WebBanDienThoai.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Price,Stock,Descriptions,SIM,MemoryStorage,Ram,Picture,BrandID,OSID")] PRODUCT pRODUCT)
+        public ActionResult Create([Bind(Include = "ID,Name,Price,Stock,Descriptions,SIM,MemoryStorage,Ram,Picture,BrandID,OSID")] PRODUCT pRODUCT, HttpPostedFileBase PICTURE)
         {
+            if (PICTURE != null && PICTURE.ContentLength > 0)
+            {
+                // Handle file upload here
+                var fileName = Path.GetFileName(PICTURE.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                PICTURE.SaveAs(path);
+
+                // Save the file path in your model
+                pRODUCT.Picture = fileName;
+            }
             if (ModelState.IsValid)
             {
                 db.PRODUCTs.Add(pRODUCT);

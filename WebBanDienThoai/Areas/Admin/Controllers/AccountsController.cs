@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -48,8 +49,30 @@ namespace WebBanDienThoai.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NAME,EMAIL,PASSWORD,NUMBERPHONE,TYPEID,ADDRESS,PICTURE")] Account account)
+        //public ActionResult Create([Bind(Include = "ID,NAME,EMAIL,PASSWORD,NUMBERPHONE,TYPEID,ADDRESS,PICTURE")] Account account)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Accounts.Add(account);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.TYPEID = new SelectList(db.AccountTypes, "ID", "Name", account.TYPEID);
+        //    return View(account);
+        //}
+        public ActionResult Create([Bind(Include = "ID,NAME,EMAIL,PASSWORD,NUMBERPHONE,TYPEID,ADDRESS,PICTURE")] Account account, HttpPostedFileBase PICTURE)
         {
+            if (PICTURE != null && PICTURE.ContentLength > 0)
+            {
+                // Handle file upload here
+                var fileName = Path.GetFileName(PICTURE.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images"), fileName);
+                PICTURE.SaveAs(path);
+
+                // Save the file path in your model
+                account.PICTURE =  fileName;
+            }
             if (ModelState.IsValid)
             {
                 db.Accounts.Add(account);
@@ -60,7 +83,6 @@ namespace WebBanDienThoai.Areas.Admin.Controllers
             ViewBag.TYPEID = new SelectList(db.AccountTypes, "ID", "Name", account.TYPEID);
             return View(account);
         }
-
         // GET: Admin/Accounts/Edit/5
         public ActionResult Edit(int? id)
         {
