@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<h2>Đổi mật khẩu</h2>
+<h2>@ViewBag.Error</h2>
+<div class="container mt-5">
+    <form action="@Url.Action("Edit", "User")" method="post">
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" name="password" placeholder="Enter your password">
+        </div>
+        <div class="form-group">
+            <label for="passwordNew">New Password</label>
+            <input type="text" class="form-control" id="passwordNew" name="passwordNew" placeholder="Enter your new password">
+        </div>
+        <div class="form-group">
+            <label for="passwordAgain">Confirm New Password</label>
+            <input type="text" class="form-control" id="passwordAgain" name="passwordAgain" placeholder="Confirm your new password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

@@ -39,7 +39,7 @@ namespace WebBanDienThoai.Areas.Admin.Controllers
         // GET: Admin/Accounts/Create
         public ActionResult Create()
         {
-            ViewBag.TYPEID = new SelectList(db.AccountTypes, "ID", "Name");
+            //ViewBag.TYPEID = new SelectList(db.AccountTypes, "ID", "Name");
             return View();
         }
 

@@ -31,7 +31,7 @@
                             @Html.Action("CartPartial", "Cart")
                         </div>
                         <div class="col-sm-4 col-md-0">
-                            <a style="color:red" href="@Url.Action("Profile", "User", new { id = u.NAME })"> Xin chào : @u.EMAIL</a>
+                            <a style="color:red" href="@Url.Action("Profile", "User", new { id = u.ID })"> Xin chào : @u.EMAIL</a>
 
                             <a style="color:red" href="/User/Logout"> ĐĂNG XUẤT</a>
                         </div>

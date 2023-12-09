@@ -1,0 +1,68 @@
+﻿@model WebBanDienThoai.Models.Account
+@{
+    Layout = null;
+}
+
+<h2>HỒ SƠ CÁ NHÂN</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            Ảnh đại diện
+        </dt>*@
+
+        @*<dd>
+            <img src=@Url.Content("~" + @Html.DisplayFor(model => model.PICTURE)) class="img-responsive" alt="" width="200" height="200" />
+
+        </dd>*@
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMBERPHONE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMBERPHONE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADDRESS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADDRESS)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button class="btn btn-primary">
+        @Html.ActionLink("Đổi mật khẩu", "Edit", new { account = Model }, new { @style = "color:white;" })
+    </button>
+    @Html.ActionLink("Back to List", "Index", "Home")
+</p>

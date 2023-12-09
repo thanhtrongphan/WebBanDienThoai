@@ -89,5 +89,40 @@ namespace WebBanDienThoai.Controllers
                 return RedirectToAction("Login", "User");
             }
         }
+        public ActionResult Profile(int id)
+        {
+            Session["idAcc"] = id;
+            var account = db.Accounts.SingleOrDefault(x => x.ID == id);
+            return View(account);
+        }
+        public ActionResult Edit()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Edit(string password, string passwordNew, string passwordAgain)
+        {
+            int id = Convert.ToInt32(Session["idAcc"].ToString());
+            var account = db.Accounts.SingleOrDefault(x => x.ID == id);
+            if (password == account.PASSWORD)
+            {
+                if (passwordNew == passwordAgain)
+                {
+                    account.PASSWORD = passwordNew;
+                    db.SaveChanges();
+                    return RedirectToAction("Profile", "User", new { id = account.ID });
+                }
+                else
+                {
+                    ViewBag.Error = "Mật khẩu mới không trùng khớp";
+                    return View("Edit", account);
+                }
+            }
+            else
+            {
+                ViewBag.Error = "Mật khẩu cũ không chính xác";
+                return View("Edit", account);
+            }
+        }
     }
 }
